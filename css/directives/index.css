@@ -1,0 +1,81 @@
+/* if */
+.title {
+  font-size: 3 px; }
+
+/*** @if*/
+.title {
+  color: red; }
+
+/*@for $var from <start> through <end>*/
+.px-5 {
+  padding-left: 5;
+  padding-right: 5; }
+
+.px-6 {
+  padding-left: 6;
+  padding-right: 6; }
+
+.px-7 {
+  padding-left: 7;
+  padding-right: 7; }
+
+/* @for $var from <start> to <end> */
+.mx-5 {
+  margin-left: 5;
+  margin-right: 5; }
+
+.mx-6 {
+  margin-left: 6;
+  margin-right: 6; }
+
+.title {
+  color: 8; }
+  .title .iv {
+    font-size: 8; }
+  .title .iv {
+    font-size: 9; }
+
+.c-blue {
+  color: blue; }
+
+.c-red {
+  color: red; }
+
+.c-yellow {
+  color: yellow; }
+
+.cuu-blue {
+  color: blue; }
+
+.cuu-red {
+  color: red; }
+
+.cuu-yellow {
+  color: yellow; }
+
+.c-blue {
+  color: blue;
+  border: 1px solid rgba(0, 0, 255, 0.5); }
+
+.c-red {
+  color: red;
+  border: 1px solid rgba(255, 0, 0, 0.4); }
+
+.c-yellow {
+  color: yellow;
+  border: 1px solid rgba(255, 255, 0, 0.5); }
+
+.btn-primary {
+  color: #409EFF; }
+
+.btn-success {
+  color: #67C23A; }
+
+.btn-warning {
+  color: #E6A23C; }
+
+.btn-danger {
+  color: #F56C6C; }
+
+.btn-info {
+  color: #909399; }

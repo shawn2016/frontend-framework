@@ -1,0 +1,40 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let cbs = [];
+    let pendings = [];
+    function flushCallBacks() {
+      cbs.forEach(fn => fn && fn())
+      pendings = false
+    }
+    function nextTick(fn) {
+      cbs.push(fn)
+      if (!pendings) {
+        pendings = true;//创建一次就好了，不需要重复进行操作创建promise
+        Promise.resolve().then(flushCallBacks)
+      }
+    }
+    function render() {
+      console.log("渲染")
+    }
+    nextTick(render)
+    nextTick(render)
+    nextTick(render)
+    //等数据更改完都渲染，
+    console.log("更改状态---1---")
+    console.log("更改状态---2---")
+
+
+  </script>
+</body>
+
+</html>

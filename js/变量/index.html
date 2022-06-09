@@ -1,0 +1,51 @@
+<!--
+ * @Descripttion: 
+ * @version: 1.0.0
+ * @Author: Mfy
+ * @Date: 2021-01-21 09:27:57
+ * @LastEditors: Mfy
+ * @LastEditTime: 2021-01-21 10:50:50
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script> 
+  // ie=utf-8
+  let url="https://www.baidu.com/s?ie=utf-8&ie=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=%E5%93%88%E5%93%88%E5%93%88%E5%93%88&fenlei=256&rsv_pq=84799b46000074bd&rsv_t=8a2fHgVz9tBioi7B%2FRPavkojNcrJOXdSULFgznxTWsDBojEyC3gvrVVH%2Fis&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_sug3=8&rsv_sug1=2&rsv_sug7=100&rsv_sug2=0&rsv_btype=i&prefixsug=%25E5%2593%2588%25E5%2593%2588%25E5%2593%2588%25E5%2593%2588&rsp=4&inputT=1720&rsv_sug4=1720"
+ function parseUrl(url){
+    let paramsUrlStr = url.split("?")[1];
+    if(!paramsUrlStr || paramsUrlStr.length ==1){
+      return {}
+    } 
+    let query ={}; 
+    let paramsArr = paramsUrlStr.split("&");
+    for(var i=0;i<paramsArr.length;i++){
+      let array = paramsArr[i].match(/(.*?)=(.*?)$/);
+      query[array[1]] = fixParams(query[array[1]],array[2])
+    }
+    return query;
+  }
+  function fixParams(arr,value){
+    value = decodeURIComponent(value)
+    if(!arr){
+      return  value;
+    }else{
+       return Array.isArray(arr)? arr.push(value):[arr,value]
+    }
+  }
+  let result = parseUrl(url);
+  console.log(result)
+
+  function a(){
+    this.b ='2222'
+  } 
+  a()
+  </script>
+</body>
+</html>

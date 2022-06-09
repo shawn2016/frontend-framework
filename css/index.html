@@ -1,0 +1,97 @@
+<!--
+ * @Descripttion: 
+ * @version: 1.0.0
+ * @Author: Mfy
+ * @Date: 2021-01-04 17:02:41
+ * @LastEditors: Mfy
+ * @LastEditTime: 2021-01-04 17:47:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <met a charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .onepxBorder{
+      position: relative;
+    }
+    .onepxBorder::before{
+      content:""; 
+      pointer-events: none; /* 防止点击触发 */
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 200%;
+      width: 200%; 
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+      -webkit-transform: (scale(0.5));    
+      transform: (scale(0.5));
+    }
+    .id{    
+       border: 1px solid #000;  
+    }
+    .ha{
+      width: 30px;
+    }
+    .ha::before{
+    
+      border: 1px solid #000;
+    }
+    .box{
+      width: 400px;
+      height: 400px;
+      background: yellow;
+    } 
+    .circle{ 
+       
+            display: block;
+            width: 40px;
+            height: 40px;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            background: greenyellow;
+            animation: center2 2s ease-out forwards;
+    } 
+    @keyframes center2 { 
+       to{transform: translate(360px,360px)} 
+    } 
+  </style>
+</head>
+<body>
+  <div class="id">hahahaha</div>
+  <div  class="onepxBorder ha">3333</div>
+  <div class="box">
+    <span class="circle"></span>
+  </div>
+  <div class="ul">
+
+    <ul id="myy">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+  </div>
+  <script>
+     function getArgument(){
+       let args= arguments; 
+       args=[].slice.call(args)
+       args=Array.prototype.slice.call(args) 
+      let result =[]
+      for(var i=0;i<args.length;i++){
+        result.push(args[i])
+      }
+       console.log(result)
+     }
+     getArgument(1,2,3,5,) 
+     let arr =new Array(4,1,63)
+     console.log(arr)
+     
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+@mixin large-text {
+  font: {
+    family: Arial;
+    size: 20px;
+    weight: bold;
+  }
+  color: #ff0000;
+}
+.title{
+  @include large-text();
+}
+
+@mixin flex($align-items:center,$just-content:space-between){
+   display: flex;
+   align-items: $align-items;
+   justify-content: $just-content;
+} 
+.flex{
+  @include flex(cenetr);
+} 
+
+$buttonMaps:(
+  primary: #409EFF, 
+  success:#67C23A,
+  warning:#E6A23C,
+  danger:#F56C6C,
+  info:#909399
+); 
+@mixin  color($type) {
+   $color:map-get($buttonMaps,$type);
+   color:$color;
+   border-color:transparentize($color,0.5)
+}
+
+@mixin generatorBtn($type,$size) {
+  .b-#{$type}{
+    @include flex(center,center);
+    font-size: $size * 1px;
+    @include color($type) ;
+  }
+ 
+}
+
+.hh{
+  @include generatorBtn(primary,23);
+}
+
+@mixin box-shadow($shadows...) {
+  -moz-box-shadow: $shadows;
+  -webkit-box-shadow: $shadows;
+  box-shadow: $shadows;
+}
+.shadows {
+  @include box-shadow(0px 4px 5px #666, 2px 6px 10px #999);
+}
+
+$themeColor:(
+  red:(
+    text:red,
+    border:transparentize(red,0.5),
+  ),
+  yellow:(
+    text:yellow,
+    border:transparentize(yellow,0.5),
+  ),
+);
+@mixin changeTheme($type) {
+  $colorMap:map-get($themeColor, $type) !global;
+  #app{
+    color: map-get($colorMap, text);
+    border:1px solid map-get($colorMap, border); 
+     @content;  
+  }
+}
+@include changeTheme(red){
+  button{
+    color: map-get( $colorMap,  text);
+  }
+}
+
+@include changeTheme(yellow){
+  button{
+    color: map-get( $colorMap,  text);
+  }
+}

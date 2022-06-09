@@ -1,0 +1,7 @@
+@charset "UTF-8";
+/**
+  介绍scss中的函数
+*/
+.stringFun {
+  color: "red";
+  background: red; }

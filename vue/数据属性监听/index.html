@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>vue2.0 defineProperty 和 vue3.0proxy </h3>
+  <div>
+     <input type="text" value="值的更改" oninput="oninputValue(this)">
+     <div id="showText">输入框的值为</div>
+     <div id="proxyText">proxyText输入框的值为</div>
+  </div>
+ 
+  <script src="./defineProperty.js"></script>
+  <!-- <script src="./proxy.js"></script>   -->
+  <script>
+   var obj = {
+     value:"此刻的值"
+   }
+   /**
+    * obj 需要定义属性的当前对象
+    * value 当前需要定义的属性名字
+    * {}对当前属性的配置
+    * */
+   /**
+    * configurable: false 时，不能删除当前属性，且不能重新配置当前属性的描述符
+    * (有一个小小的意外：可以把writable的状态由true改为false,但是无法由false改为true),
+    * 但是在writable: true的情况下，可以改变value的值
+    * configurable: true时，可以删除当前属性，可以配置当前属性所有描述符。*/
+   Object.defineProperty(obj,'value',{
+     configurable:false, //是否是可配置的
+     enumerable:true,//是否是可枚举的 通过Object.keys进行遍历或者for...in 
+    //  writable:true,//是否可以改变属性的值 value-> name 等
+     set(val){
+       //值改变的时候进行的操作
+       console.log("此时的值进行了改变"+val)
+       document.querySelector("#showText").innerHTML="defineProperty输入框的值变成了"+val
+
+     },
+     get(){
+       //获取值时候进行的操作
+       console.log("获取值") 
+     }
+   })
+   var arr = []
+   Object.defineProperty(arr,'key',{
+     configurable:false, //是否是可配置的
+     enumerable:true,//是否是可枚举的 通过Object.keys进行遍历或者for...in 
+    //  writable:true,//是否可以改变属性的值 value-> name 等
+     set(val){
+       //值改变的时候进行的操作
+       console.log("此时的值进行了改变"+val)
+       document.querySelector("#showText").innerHTML="defineProperty输入框的值变成了"+val
+
+     },
+     get(){
+       //获取值时候进行的操作
+       console.log("获取值") 
+     }
+   })
+
+ 
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!--
+ * @Descripttion: 
+ * @version: 1.0.0
+ * @Author: Mfy
+ * @Date: 2020-12-06 15:05:27
+ * @LastEditors: Mfy
+ * @LastEditTime: 2020-12-06 15:45:55
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="clickButton(this)">点击</button>
+  <input type="text" placeholder="请输入" oninput="searchData(this)">
+  <script src="index.js"></script>
+  <script> 
+    var clickButton= debounce(function(el){
+      console.log("当前点击时间,",_now(),el)    
+    }) 
+
+    var searchData = throttle(function (el) {
+       console.log('5秒执行',this)
+    })
+   
+
+
+  </script>
+</body>
+</html>

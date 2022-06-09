@@ -1,0 +1,89 @@
+body{
+  background: red;
+  /*!
+    author:@author
+  */ 
+  .list{
+     font-size: 12px;
+  }
+}
+//变量
+$color:red;
+$fontColor:red;
+body{
+ background: $color;
+ color: $fontColor;
+}
+
+//局部-作用域
+div{
+  $fontSize:12px;
+  span{
+    font-size:$fontSize;
+  }
+}
+p{
+  //错误
+ // font-size:$fontSize;
+}
+
+//全局-作用域
+div{
+  $fontSize:12px !global;
+  span{
+    font-size:$fontSize;
+  }
+}
+p{
+  font-size:$fontSize;
+}
+
+//字符串
+$color:'red';
+$quTecolor:red;
+.stringScss{
+ color: $color;
+ background:$quTecolor;
+ .#{$color}{
+    color: rebeccapurple;
+ }
+}
+
+//数字
+$size:1px;
+$sizeBig:2;
+.numSelector{
+  font-size: $size;
+   width: $sizeBig + px;
+}
+
+//null 
+$value: null;
+.nullSelector{
+  font-size: 12px;
+  color: $value;
+}
+
+//boolean
+
+$a:true;
+$b:false;
+.booleanSelector{
+  color: $a;
+  color: $b;
+}
+
+//数组
+$colorList1:1px 2px  5px 6px;
+$colorList2:1px 2px, 5px 6px;
+$colorList3:(1px 2px) ( 5px 6px) (3px 2px);
+
+//映射 Maps
+$colorMaps:(
+  title:#333,
+  desc:#666,
+  text:#999
+);
+.mapSelector{
+  color: map-get($colorMaps , title );
+}

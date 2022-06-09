@@ -1,0 +1,40 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    let state = [12,3,1,2]
+    let active ;
+    //获取数组原来的方法
+    let orianalArray = Array.prototype;
+    //创建和原来的方法一样的数据 不是深拷贝
+    let arrayMethods = Object.create(v)
+    function defineReactive(obj){
+      //函数劫持 可以做自己要进行的自定义操作
+      arrayMethods.push = function(...args){
+        orianalArray.push.call(this,...args);
+        //数据完成后数组个鞥新
+      }
+      arrayMethods.concat = function(...args){
+        orianalArray.concat.call(this,...args)
+      }
+      arrayMethods.splie = function(...args){
+        orianalArray.splie.call(this,...args)
+      }
+      //JS的原型链 
+      obj.__proto__ = arrayMethods;
+    } 
+    defineReactive(state)
+    //插入到页面的功能
+    watcher(()=>{
+      app.innerHTML = state
+    })
+ </script>
+</body>
+</html>

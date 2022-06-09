@@ -1,0 +1,86 @@
+/* if */
+ $number1:7;
+ $number2:3;
+.title{
+  font-size: if($number1 > $number2,3,6) px;
+}
+
+/*** @if*/
+.title{
+  @if $number1 ==1{
+    font-size: $number1 * 1px;
+  } @else if $number1 >1 {
+    color: red;
+  }@else{
+    color: green;
+  }
+}
+
+/*@for $var from <start> through <end>*/
+@for $size from 5 through 7{
+  .px-#{$size}{
+    padding-left: $size;
+    padding-right: $size;
+  }
+}
+/* @for $var from <start> to <end> */
+
+@for $size from 5 to 7{
+  .mx-#{$size}{
+    margin-left: $size;
+    margin-right: $size;
+  }
+} 
+
+$size:8;
+.title{
+  color:$size;
+  @while $size < 10 {
+    .iv{
+      font-size: $size;
+    } 
+    $size:$size+1;
+  }
+}
+
+//遍历list 
+$colorList:blue red yellow;
+@each $color in $colorList{
+  .c-#{$color}{
+    color:$color; 
+  }
+}
+
+//index
+$colorList:blue red yellow;
+$text:2 3 5;
+@each $color,$index in $colorList{
+  .cuu-#{$color}{
+    color:$color; 
+    font-size: index($text,$index );
+  }
+}
+
+
+$colorList2:blue transparentize(blue,0.5),red transparentize(red,0.6),yellow transparentize(yellow,0.5);
+@each $main-color,$border-color in $colorList2{
+  .c-#{$main-color}{
+    color:$main-color; 
+    border: 1px solid $border-color ;
+  }
+}
+
+$buttonMaps:(
+  primary: #409EFF, 
+  success:#67C23A,
+  warning:#E6A23C,
+  danger:#F56C6C,
+  info:#909399
+);
+
+@each $key,$color in $buttonMaps{
+  .btn-#{$key}{
+    color: $color;
+  }
+}
+ 

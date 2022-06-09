@@ -1,0 +1,19 @@
+.countWrapper {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+.countWrapper p{ 
+  width: 50px;
+  text-align: center;
+}
+.countWrapper span{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #981212;
+  background: #efefef;
+  cursor: pointer;
+}

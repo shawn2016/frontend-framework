@@ -1,0 +1,68 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //合并钩子方法
+    function mergeHook(pfnVal,cfnVal){ 
+      if(cfnVal){
+        if(pfnVal){ //MIXIN 把所有的钩子都组成了一个数组
+          return pfnVal.concat(cfnVal)
+        }else{
+          return [cfnVal]
+        }
+      }else{
+        return pfnVal
+      }
+
+    }
+    //合并选项
+    function mergeOptions(parent,children){
+       let opts = {};
+       for(var key in children){ 
+          opts[key] = mergeHook(parent[key],children[key]);
+       }
+      return opts;
+    }
+    function Vue(options){
+      this.options ={}
+      //钩子会进行内部合并将生命周期变成数组，
+      //内部会将钩子函数合并成一个数组，找到对应的方法去进行执行
+      this.options = mergeOptions(this.constructor.options,options);
+      //在适当的时候进行调用
+      callHook(this,'beforeCreate')
+      callHook(this,'created')
+    } 
+    Vue.options ={
+      // beforeCreate() {
+      //   console.log("父组件 beforeCreate")
+      // },
+    } //默认的一个选项
+    function callHook(vm,hookname){
+      vm.options[hookname] && vm.options[hookname].forEach(fn=>fn())
+    }
+    Vue.mixin=function(obj){
+      //把vue.options中的beforeCreate变成了数组
+      this.options = mergeOptions(this.options,obj)
+    }
+    Vue.mixin({
+      beforeCreate() {
+        console.log("mixin beforeCreate")
+      },
+    })
+ 
+    new Vue({
+      beforeCreate() {
+        console.log("子组件 beforeCreate")
+      },
+
+    })
+  
+  </script>
+</body>
+</html>

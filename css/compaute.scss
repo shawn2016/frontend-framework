@@ -1,0 +1,118 @@
+/*数字运算符*/
+
+/*SassScript 支持数字的加减乘除、取整等运算 (+, -, *, /, %)，如果必要会在不同单位间转换值*/
+.add{
+   /* 纯数字*/
+   font-size: 1+2; //3
+   font-size: 1+2px; //3
+   font-size: 1px+2; //3
+   font-size: 1px+2px; //3 
+
+   /** 纯字符串 */
+   font-size: 'A'+'B';
+   font-size: a+'B';
+   font-size: '4'+'c';
+   font-size: a+b;
+
+   /** 数字和字符串 */
+   font-size: 1+'3';
+   font-size: a+1;
+   font-size: a+"3";
+
+}
+
+.reduce{
+  font-size: 1-2;
+  font-size: 1-1px;
+  font-size: 4px-1px;
+
+  /* 字符串**/
+  font-size: 3-'1';
+  font-size: '3'-'1';
+  font-size: '1'-1;
+
+  /* 乘法**/
+
+  font-size: 1 *1px;
+  font-size: 4px *1;
+  //font-size: 1px *1px;
+
+  /* 除法*/
+  font-size: 12/6 * 1px;
+  font-size: 12/6 * 1px;
+  font-size: 12/5 * 1px; 
+
+  /* 取余 */
+  font-size: 12 % 5 * 1px;
+  font-size: 12%5 * 1px;
+
+}
+
+
+//关系运算符 
+.relation {
+  $size1:1>2; //false
+  $size2:1>=2; //false
+  $size3:1<2; //true
+  $size4:1<=2; //true
+}
+
+
+//相等运算符号
+
+.equal{
+   color: 1 == 1px; //true
+   color: 1rem == 1px; //false
+   color: '1' == 1;//false
+   color: 'a' == a; //true
+}
+
+
+
+  /* 颜色色值计算*/
+
+  .color{
+    color:#122134 + #241231;
+    color:#AAAAAA+ #FFFFFF;
+    color:#9AE212+ #2A3E34;
+
+    color: #122134 * 3;
+    color: #aaaaaa * 3;
+    color: #212112 * 3;
+
+
+    color: rgba(2,3,4,0.5)+ rgba(234,255,211,0.5);
+  }
+
+
+
+  /* 插值语法*/ 
+  $button:primary;
+  $attr:color;
+
+  button.#{$button}{
+    #{$attr}:white;
+  }
+
+
+  /* & in sasscript**/
+
+  p{
+    &::before{
+      content:"我是p标签的伪元素"
+    }
+  }
+
+  /* default */
+  $color1:white;
+  $color1:#000 !default;
+  p{
+    color:$color1;
+  }
+
+    /* default */
+    $color1:null;
+    $color1:#000 !default;
+    p{
+      color:$color1;
+    }

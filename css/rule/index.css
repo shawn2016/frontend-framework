@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/**不可导入css @import url('./demo.css'); */
+.body::before {
+  content: "我是demo.scss的变量"; }
+
+body {
+  width: 22222px; }
+  @media screen and (orientation: landscape) {
+    body {
+      width: 22222px; } }
+
+/* 继承 */
+.extend .btn, .extend .big-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.extend .big-btn {
+  color: white; }
+
+/* 嵌套并列使用*/
+.extend1 .content .title, .extend1 .content .wrapper, .extend1 .content .po {
+  color: #dedede; }
+
+.extend1 .wrapper {
+  font-size: 12px; }
+
+.path {
+  color: red; }
+
+.path {
+  color: red; }
+
+/** @at-root*/
+.root {
+  font-size: 12px; }
+  .title, .extend1 .wrapper, .po {
+    height: 323px; }
+
+/**@at-root (without: ...) and @at-root (with: ...) */
+@media print {
+  .book {
+    font-size: 34px; }
+    .book .wrapper {
+      height: 34px; } }
+  .title, .extend1 .wrapper, .po {
+    font-size: 23px; }
+
+@media print2 {
+  .book {
+    font-size: 34px; }
+    .book .wrapper {
+      height: 34px; }
+      .title, .extend1 .wrapper, .po {
+        font-size: 23px; } }
+
+.tc {
+  position: relative;
+  left: 3px;
+  top: 2px; }

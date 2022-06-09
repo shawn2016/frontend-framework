@@ -1,0 +1,51 @@
+<!--
+ * @Descripttion: 
+ * @version: 1.0.0
+ * @Author: Mfy
+ * @Date: 2020-12-07 19:09:30
+ * @LastEditors: Mfy
+ * @LastEditTime: 2020-12-07 20:51:39
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="layer">
+    <button id="button">我是按钮</button>
+    <ul id="ul">
+      <li>1</li>
+      <li>3</li>
+      <li>34</li>
+      <li>33</li> 
+    </ul>
+  </div>
+  <script src="http://domain/api?param1=a&param2=b&callback=jsonp"></script>
+  <script>
+    function jsonp(params) {
+      console.log(params) 
+    }
+    button.addEventListener('click',(ev)=>{
+       console.log("冒泡")
+    },false)
+    button.addEventListener('click',(ev)=>{
+       console.log("捕获")
+    },true)
+    ul.addEventListener('click',(ev)=>{
+      console.log(ev.target)
+    },true)
+
+ //
+ window.parent.postMessage('message', 'http://blog.poetries.com');
+//
+var mc = new MessageChannel(); mc.addEventListener('message', (event) => {
+var origin = event.origin || event.originalEvent.origin; if (origin === 'http://blog.poetries.com') {
+} });
+
+  </script>
+
+</body>
+</html>

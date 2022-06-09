@@ -1,0 +1,43 @@
+{
+  "name": "rollup-d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup src/index.js --file  dist/bundle.js --format umd",
+    "build:config": "rollup -wc   rollup.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@rollup/plugin-alias": "^3.1.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "autoprefixer": "^10.1.0",
+    "cssnano": "^4.1.10",
+    "eslint-plugin-vue": "^7.3.0",
+    "node-sass": "^5.0.0",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-nested": "^4.2.1",
+    "postcss-simple-vars": "^5.0.2",
+    "rollup": "^2.35.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-img": "^1.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-scss": "^2.6.1",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.30.0",
+    "vue": "^2.6.12"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "core-js": "^3.8.1"
+  }
+}

@@ -1,0 +1,125 @@
+@import './demo.scss' ; 
+
+/**不可导入css @import url('./demo.css'); */
+
+.body{
+   &::before{
+
+     content: $demo;
+   }
+}
+
+
+
+@import './demo.scss', './demo2.scss' ; 
+
+
+body{
+  width: 22222px;
+  @media screen and(orientation: landscape) {
+     width: 22222px;
+  }
+}
+
+/* 继承 */
+
+.extend{
+
+  .btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .big-btn{
+    @extend .btn;
+    color: white;
+  }
+ 
+}
+
+
+/* 嵌套并列使用*/
+.extend1{
+  .content{
+    .title{
+      color:#dedede;
+    }
+  }
+  .wrapper{
+    @extend .title;
+    font-size: 12px;
+  }
+}
+
+// example1:
+%img {
+  color: red;
+}
+.path{
+  @extend %img;
+}
+// 编译后：
+.path {
+color: red;
+}
+
+/** @at-root*/
+
+.root{
+  font-size: 12px;
+  @at-root  .title{
+    height: 323px;
+  }
+} 
+.po{
+  @extend .title;
+}
+
+
+/**@at-root (without: ...) and @at-root (with: ...) */
+
+@media print{
+  .book {
+    font-size: 34px;
+    .wrapper{
+      height: 34px;
+      @at-root (without: media){
+        .title{
+          font-size:23px;
+        }
+      }
+    }
+  } 
+}
+
+@media print2{
+  .book {
+    font-size: 34px;
+    .wrapper{
+      height: 34px;
+      @at-root (with: media){
+        .title{
+          font-size:23px;
+        }
+      }
+    }
+  } 
+}
+@debug 10em + 12em;
+
+// @warn指令将SassScript表达式的值打印到标准错误输出流。对于需要警告用户不赞成使用或从轻微的mixin使用错误中恢复的库来说，它非常有用。@warn和@debug之间有两个主要区别:
+
+@mixin adjust-location($x, $y) {
+  @if unitless($x) {
+    @warn "Assuming #{$x} to be in pixels";
+    $x: 1px * $x;
+  }
+  @if unitless($y) {
+    @warn "Assuming #{$y} to be in pixels";
+    $y: 1px * $y;
+  }
+  position: relative; left: $x; top: $y;
+}
+.tc{
+  @include adjust-location(3,2)
+}

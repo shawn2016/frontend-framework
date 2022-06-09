@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  用户名：<input id="username" type="text"/>
+  密码： <input id="password" type="password"/>
+  <input id="submitBtn" type="button" value="提交"></button>
+<script>
+  var username = document.getElementById( 'username' ),
+  password = document.getElementById( 'password' ),
+  submitBtn = document.getElementById( 'submitBtn' );
+   /* 日常写法 臃肿*/
+   /**
+    * version:1.0
+    var formSubmit = function(){
+        if ( username.value === '' ){
+            return alert ( '用户名不能为空' );
+        }
+        if ( password.value === '' ){
+            return alert ( '密码不能为空' );
+        }
+        var param = {
+            username: username.value,
+            password: password.value
+        }
+        ajax( 'http://xx.com/login', param ); // ajax 具体实现略
+    }
+  
+    submitBtn.onclick = function(){
+        formSubmit();
+    }
+   */
+  /**
+   * version 2.0 存在问题 函数职责不清楚
+  var validata =function(){
+      if ( username.value === '' ){
+             alert ('用户名不能为空' );
+             return false;
+        }
+        if ( password.value === '' ){
+             alert ( '密码不能为空' );
+             return false;
+        }
+        return true;
+  }
+  var formSubmit =function(){
+     if(!validata()) return 
+    var param = {
+            username: username.value,
+            password: password.value
+        }
+        ajax( 'http://xx.com/login', param ); // ajax 具体实现略
+  }
+  */
+  var validata =function(){
+      if ( username.value === '' ){
+             alert ('用户名不能为空' );
+             return false;
+        }
+        if ( password.value === '' ){
+             alert ( '密码不能为空' );
+             return false;
+        }
+        return true;
+  }
+  Function.prototype.before = function( beforefn ){
+    var __self = this;
+    return function(){
+        if ( beforefn.apply( this, arguments ) === false ){
+        // beforefn 返回false 的情况直接return，不再执行后面的原函数
+            return;
+        }
+        return __self.apply( this, arguments );
+    }
+}
+var formSubmit =function(){ 
+    var param = {
+            username: username.value,
+            password: password.value
+        }
+        ajax( 'http://xx.com/login', param ); // ajax 具体实现略
+  }
+  formSubmit = formSubmit.before( validata );
+  submitBtn.onclick = function(){
+   
+        formSubmit();
+    }
+  function ajax(){
+    console.log("提交了数据")
+  }
+</script>
+</body>

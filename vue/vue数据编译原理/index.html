@@ -1,0 +1,65 @@
+<!--
+ * @Descripttion: 
+ * @version: 1.0.0
+ * @Author: Mfy
+ * @Date: 2020-08-23 09:35:07
+ * @LastEditors: Mfy
+ * @LastEditTime: 2021-01-18 18:32:23
+-->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .class1 .class2{
+      color:red;
+    }
+    .class3{
+      color:blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="class1">
+    <p class="class2 class3">33333</p>
+  </div>
+  <div id="app">
+    <input type="text" v-model="name">
+    <span>{{name}}</span>
+    <div>你的名字是{{name}}</div>
+      <span v-class="class" class="dd">绑定class</span>
+  
+  
+    <!-- <span>{{name}}</span> -->
+    <!-- <span v-class="class">绑定class</span> -->
+    <!-- <input type="text" >
+    <span v-on:click="click">点击了</span> -->
+    <!-- <span>{{name}}</span> -->
+  </div>
+  <script src="./Compile.js"></script>
+  <script src="./Observer.js"></script>
+  <script src="./Watcher.js"></script>
+  <script src="./Mvvm.js"></script>
+  <script>
+   var el =document.querySelector("#app")
+   console.log()
+   var ele= new Mvvm({
+     el:"#app",
+     data:{
+       name:"yyy", 
+       class:"yyy"
+     },
+     methods: {
+      click(){
+        console.log("点击了")
+      }
+     },
+   })
+   console.log(ele)
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    header{
+      background: red;
+      color: #fff;
+    }
+    section{
+      width: 100%;
+      background: rebeccapurple;
+      color:#fff;
+    }
+    #msgList ul li,#buy-car ul li{
+      list-style: none;  
+    }
+  </style>
+</head>
+<body>
+  <header>我是未登录前的header</header>
+  <nav>未登录前无导航信息</nav>
+  <section>
+    我是未登录前的内容部分
+  </section>
+  <div id="msgList">
+    我现在是空的消息列表
+  </div>
+  <div id="buy-car">
+    <ul>
+      <li>暂时无物品</li>
+    </ul>
+  </div>
+  <button class="login" data-type=1>模拟登录成功</button>
+  <button class="login" data-type=0>模拟登录失败</button>
+  <script src="./loginWeb.js"></script>
+</body>
+</html>

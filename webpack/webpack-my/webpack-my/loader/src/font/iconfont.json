@@ -1,0 +1,58 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "144703",
+      "name": "电话键盘",
+      "font_class": "dianhuajianpan",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "144704",
+      "name": "呼出电话",
+      "font_class": "huchudianhua",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "144705",
+      "name": "来电显示",
+      "font_class": "laidianxianshi",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "144706",
+      "name": "密码",
+      "font_class": "mima",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "145424",
+      "name": "出租车",
+      "font_class": "chuzuche",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "145429",
+      "name": "火车站",
+      "font_class": "huochezhan",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "1233480",
+      "name": "选择",
+      "font_class": "xuanze",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    }
+  ]
+}

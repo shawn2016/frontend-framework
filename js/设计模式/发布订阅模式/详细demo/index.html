@@ -1,0 +1,83 @@
+<!--
+ * @Descripttion: 
+ * @version: 1.0.0
+ * @Author: Mfy
+ * @Date: 2020-05-26 18:11:27
+ * @LastEditors: Mfy
+ * @LastEditTime: 2021-01-08 17:40:28
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <h3>测试</h3> 
+  </div>
+  
+  <!-- <script src="completeEvent.js"></script> -->
+  <!-- <script src="otherDemo.js"></script> -->
+  <!-- <script src="nodeEvent.js"></script> -->
+  <script src="./myCompleteEvent.js"></script>
+  <script>
+    var event = Event.create("spac")
+    event.on('myy',function(){
+      console.log(...arguments)
+    }) 
+  
+    event.once('myy',function(){
+      console.log("订阅一次呀")
+    })
+    event.emit('myy',"到了呀")
+    event.emit('myy',"到了呀")
+    console.log(event)
+
+    // var event2 = Event.on("myy",function(){
+    //   console.log(...arguments,"长期订阅")
+    // });
+   
+    // event2.once('myy',function(){
+    //   console.log(...arguments,"订阅一次")
+    // })
+    // event2.emit('myy','第一次发布')
+    // event2.emit('myy','第二次发布')
+    console.log(event2)
+    
+  // var event = new EventEmitter();
+  // console.log(event)  
+  // //订阅一个click
+  // event.on('click',fn1=function(){
+  //   console.log(...arguments)
+  // }) 
+  // event.on('click',fn2=function(){
+  //   console.log(...arguments)
+  // }) 
+  // event.on('add',fn3=function(){
+  //   console.log(...arguments)
+  // }) 
+  // event.on('add',fn4=function(){
+  //   console.log(...arguments)
+  // })
+  // event.once('add',fn5=function(){
+  //   console.log("我是绑定一次的add")
+  // })
+  // event.emit('click',333) 
+  // event.emit('add',444,555,666)
+  // console.log(event)
+  // var result = event.removeListener('reduce',fn1)
+  // console.log(result)
+  // var result1 = event.removeListener('click',fn1)
+  // console.log(result1)
+  // var result2 = event.removeListener('add',fn1)
+  // console.log(result2)
+  // var result3 = event.removeAllListener('add')
+  // console.log(result3)
+
+  // console.log(event.getEventNames())
+
+  </script>
+</body>
+</html>

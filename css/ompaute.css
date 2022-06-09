@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/*数字运算符*/
+/*SassScript 支持数字的加减乘除、取整等运算 (+, -, *, /, %)，如果必要会在不同单位间转换值*/
+.add {
+  /* 纯数字*/
+  font-size: 3;
+  font-size: 3px;
+  font-size: 3px;
+  font-size: 3px;
+  /** 纯字符串 */
+  font-size: "AB";
+  font-size: aB;
+  font-size: "4c";
+  font-size: ab;
+  /** 数字和字符串 */
+  font-size: "13";
+  font-size: a1;
+  font-size: a3; }
+
+.reduce {
+  font-size: -1;
+  font-size: 0px;
+  font-size: 3px;
+  /* 字符串**/
+  font-size: 3-"1";
+  font-size: "3"-"1";
+  font-size: "1"-1;
+  /* 乘法**/
+  font-size: 1px;
+  font-size: 4px;
+  /* 除法*/
+  font-size: 2px;
+  font-size: 2px;
+  font-size: 2.4px;
+  /* 取余 */
+  font-size: 2px;
+  font-size: 12% 5px; }
+
+.equal {
+  color: true;
+  color: false;
+  color: false;
+  color: true; }
+
+/* 颜色色值计算*/
+.color {
+  color: #363365;
+  color: white;
+  color: #c4ff46;
+  color: #36639c;
+  color: white;
+  color: #636336;
+  color: rgba(236, 255, 215, 0.5); }
+
+/* 插值语法*/
+button.primary {
+  color: white; }
+
+/* & in sasscript**/
+p::before {
+  content: "我是p标签的伪元素"; }
+
+/* default */
+p {
+  color: white; }
+
+/* default */
+p {
+  color: #000; }

@@ -1,0 +1,84 @@
+<!--
+ * @Descripttion: 
+ * @version: 1.0.0
+ * @Author: Mfy
+ * @Date: 2021-01-20 14:38:21
+ * @LastEditors: Mfy
+ * @LastEditTime: 2021-01-22 08:25:28
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+      *{
+    margin: 0;
+    padding: 0;
+  }
+   html{
+     font-size: 16px;
+   }
+  </style>
+</head>
+<body>
+  <!-- <div style="font-size:12px"> 12px </div>
+  <div style="font-size:20px;background: lightcoral;height: 60px;">
+    父元素
+    <div style="width:12em;background: lawngreen;">12em </div>
+  </div>
+  <div style="font-size:12vw"> 12vw </div>
+  <div style="font-size:12rem"> 12rem </div>
+  <div style="background: lightcoral;font-size: 14px;">
+     rem的父元素
+     <div style="font-size:10rem"> 10rem </div>
+   </div>
+   <br>
+   <br>
+   <br>
+   <div style="width: 50vw;background-color: lightsalmon;">
+      视口宽度
+   </div> -->
+   <div style="height: 90vh;background-color: rgb(42, 206, 36);">
+    视口高度
+   </div>
+
+   <script>
+     console.log(1)
+     setTimeout(()=>{
+        console.log(555)
+     })
+     //当成一个普通的函数
+     let p = new Promise((resolve)=>{
+      resolve()
+       console.log(1)
+       setTimeout(()=>{
+         console.log(444)
+       }) 
+     })
+     p.then(()=>{
+       console.log('p的开始')
+       new Promise((resolve)=>{
+         console.log('p 内部promise')
+         resolve()
+       }).then(()=>{
+         console.log('p 内部then')
+       })
+       setTimeout(()=>{
+         console.log(666)
+       })
+       console.log("p的结束")
+     })
+     p.then(()=>{
+       console.log("外部的微任务")
+
+     })
+     setTimeout(()=>{
+         console.log(77)
+       })
+     console.log(4) 
+   </script>
+</body>
+</html>

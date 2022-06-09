@@ -1,0 +1,48 @@
+ 
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ <ul id="container"></ul> 
+ <script>
+   let total =100000;
+   var con = document.getElementById("container")
+    let timer = Date.now();
+    let index = 0;
+    let id = 0;//递增的内容
+     //分片 根据数据大小划分，每次加载固定的数据
+    function load(){
+      index+=50;
+      if(index<total){
+        //定时器是一个宏任务，会等待ui渲染完成后执行
+        //setTimeout 是一个宏任务，requestAnimationFrame也是一个额宏任务欧
+        // setTimeout(()=>{ 
+         requestAnimationFrame(()=>{ 
+          for(let i=0;i<50;i++){
+            //ie的浏览器需要实现文档碎片
+            var fragment  = document.createDocumentFragment();//文档碎片
+            let li = document.createElement("li");
+            li.innerHTML=i
+            fragment.appendChild(li)    
+          } 
+          load();
+          con.appendChild(fragment)
+       },0)
+      }
+    }
+    //分片加载 会导致页面dom元素过多，造成页面的卡顿
+    load();
+  
+   setTimeout(()=>{
+     //此时是渲染时间
+    console.log(Date.now()-timer)
+   })
+  
+ </script>
+</body>
+</html>
